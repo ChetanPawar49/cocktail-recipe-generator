@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>Cocktail Recipe</title>
+</head>
+<body>
+    <h1>Cocktail Recipe Generator</h1>
+    <form action="/get-random" method="post">
+        <input id="get" type="submit" value="Random">
+    </form>
+
+    <div class="container">
+        <% const image = content.strDrinkThumb %>
+        <img src="<%= image %>" alt="cocktail image">
+        
+        <table>
+            <tr>
+                <th>Cocktail Name</th>
+                <td><%= content.strDrink %></td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td><%= content.strCategory %></td>
+            </tr>
+            <tr>
+                <th>Alcoholic</th>
+                <td><%= content.strAlcoholic %></td>
+            </tr>
+            <tr>
+                <th>Glass</th>
+                <td><%= content.strGlass %></td>
+            </tr>
+            <tr>
+                <th>Instructions</th>
+                <td><%= content.strInstructions %></td>
+            </tr>
+            <tr>
+                <th>Ingredients</th>
+                <td>
+                    <ul>
+                        <% ingredients.forEach(item => { %>
+                            <li><%= item.ingredient %>: <%= item.measure %></li>
+                        <% }); %>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
